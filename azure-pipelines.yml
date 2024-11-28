@@ -1,0 +1,19 @@
+pool:
+  name: SelfHosted
+
+trigger:
+  - main
+
+steps:
+  - task: UseDotNet@2
+    inputs:
+      packageType: sdk
+      version: '6.x'
+
+  - script: dotnet build
+    displayName: 'Build ASP.NET Application'
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'ASP.NETArtifacts'
