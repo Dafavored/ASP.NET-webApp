@@ -1,5 +1,5 @@
 pool:
-  name: SelfHosted
+  name: default
 
 trigger:
   - main
